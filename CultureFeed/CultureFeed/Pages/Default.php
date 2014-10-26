@@ -340,7 +340,7 @@ class CultureFeed_Pages_Default implements CultureFeed_Pages {
   }
 
   /**
-   * @see CultureFeed_Pages::updateAdmin()
+   * {@inheritdoc}
    */
   public function updateAdmin($id, $userId, array $params) {
 

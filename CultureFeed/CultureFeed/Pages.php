@@ -159,6 +159,20 @@ interface CultureFeed_Pages {
    */
   public function addAdmin($id, $userId, $params = array());
 
+    /**
+     * Update the membership of an administrator of a page.
+     *
+     * @param string $id
+     *   ID of the page.
+     * @param string $userId
+     *   ID of the page administrator.
+     * @param array $params
+     *   Membership properties to change.
+     *
+     * @return null
+     */
+  public function updateAdmin($id, $userId, array $params);
+
   /**
    * Remove an admin from a page
    * @param string $id

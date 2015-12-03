@@ -48,7 +48,7 @@ interface ICultureFeed {
 
   public function updateActivity($id, $private);
 
-  public function deleteActivity($id);
+  public function deleteActivity($id, $priority = CultureFeed_Activity::PRIORITY_NORMAL);
 
   public function searchActivities(CultureFeed_SearchActivitiesQuery $query);
 

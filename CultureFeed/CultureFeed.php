@@ -715,9 +715,9 @@ class CultureFeed implements ICultureFeed {
    * @param string $id
    *   ID of the activity that is deleted.
    */
-  public function deleteActivity($id) {
+  public function deleteActivity($id, $priority = CultureFeed_Activity::PRIORITY_NORMAL) {
 
-    $result = $this->oauth_client->authenticatedGetAsXml('activity/' . $id . '/delete');
+    $result = $this->oauth_client->authenticatedGetAsXml('activity/' . $id . '/delete?priority=' . $priority);
 
     try {
       $xml = new CultureFeed_SimpleXMLElement($result);

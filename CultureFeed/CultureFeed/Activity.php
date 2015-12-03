@@ -104,6 +104,13 @@ class CultureFeed_Activity {
   const TYPE_NEWS = 25;
 
   /**
+   * Activity solr indexation priority constants.
+   */
+  const PRIORITY_SEPARATE_IMMEDIATELY = 1;
+  const PRIORITY_SEPARATE_NORMAL = 2;
+  const PRIORITY_NORMAL = 3;
+
+  /**
    * ID of the activity object.
    *
    * @var string
@@ -251,6 +258,16 @@ class CultureFeed_Activity {
    * @var ActivityEventDetails $contentDetails
    */
   public $contentDetails;
+
+  /**
+   * Priority of the activity to commit to solr.
+   * 1 = separate queue, commit immediately,
+   * 2 = separate queue, but commit is done the normal way,
+   * 3 = normal queue, normal commit.
+   * Default = 3.
+   * @var integer
+   */
+  public $priority = Culturefeed_Activity::PRIORITY_NORMAL;
 
   /**
    * Helper method to get a string value for an ID.

@@ -267,7 +267,7 @@ class CultureFeed_Activity {
    * Default = 3.
    * @var integer
    */
-  public $priority = Culturefeed_Activity::PRIORITY_NORMAL;
+  public $priority;
 
   /**
    * Helper method to get a string value for an ID.

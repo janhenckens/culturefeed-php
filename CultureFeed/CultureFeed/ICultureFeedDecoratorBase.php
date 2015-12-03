@@ -41,7 +41,7 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
     {
         return $this->realCultureFeed->createServiceConsumer($consumer);
     }
-    
+
     public function createTemplate(CultureFeed_Template $template) {
         return $this->realCultureFeed->createTemplate($template);
     }
@@ -51,16 +51,16 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
         return $this->realCultureFeed->createUser($user);
     }
 
-    public function deleteActivity($id)
+    public function deleteActivity($id, $priority = CultureFeed_Activity::PRIORITY_NORMAL)
     {
-        return $this->realCultureFeed->deleteActivity($id);
+        return $this->realCultureFeed->deleteActivity($id, $priority);
     }
 
     public function deleteMailing($id)
     {
         return $this->realCultureFeed->deleteMailing($id);
     }
-    
+
     public function deleteTemplate($id) {
         return $this->realCultureFeed->deleteTemplate($id);
     }
@@ -183,7 +183,7 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
     {
         return $this->realCultureFeed->getRequestToken($callback);
     }
-    
+
     public function getServiceConsumer($consumerKey) {
         return $this->realCultureFeed->getServiceConsumer($consumerKey);
     }
@@ -197,11 +197,11 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
     {
         return $this->realCultureFeed->getSimilarUsers($id);
     }
-    
+
     public function getTemplate($id) {
         return $this->realCultureFeed->getTemplate($id);
     }
-    
+
     public function getTemplateList() {
         return $this->realCultureFeed->getTemplateList();
     }
@@ -417,7 +417,7 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
     {
         return $this->realCultureFeed->updateServiceConsumer($consumer);
     }
-    
+
     public function updateTemplate(CultureFeed_Template $template, $fields = array()) {
         return $this->realCultureFeed->updateTemplate($template, $fields);
     }
@@ -491,4 +491,4 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
         return $this->realCultureFeed->savedSearches();
     }
 
-} 
+}

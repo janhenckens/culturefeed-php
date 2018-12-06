@@ -1,7 +1,7 @@
 <?php
 
 
-class CultureFeed_Uitpas_Calendar_Period {
+class CultureFeed_Uitpas_Calendar_Period implements \JsonSerializable {
 
   /**
    * The start date of the period
@@ -17,4 +17,14 @@ class CultureFeed_Uitpas_Calendar_Period {
    */
   public $dateto;
 
+  /**
+   * {@inheritdoc}
+   */
+  public function jsonSerialize()
+  {
+    return [
+      'dateFrom' => $this->datefrom,
+      'dateTo' => $this->dateto,
+    ];
+  }
 }

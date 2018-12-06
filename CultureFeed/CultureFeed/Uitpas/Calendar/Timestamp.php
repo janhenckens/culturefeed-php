@@ -1,7 +1,7 @@
 <?php
 
 
-class CultureFeed_Uitpas_Calendar_Timestamp {
+class CultureFeed_Uitpas_Calendar_Timestamp implements \JsonSerializable {
 
   /**
    * The date
@@ -24,4 +24,15 @@ class CultureFeed_Uitpas_Calendar_Timestamp {
    */
   public $timeend;
 
+  /**
+   * {@inheritdoc}
+   */
+  public function jsonSerialize()
+  {
+    return [
+      'date' => $this->date,
+      'timeStart' => $this->timestart,
+      'timeEnd' => $this->timeend,
+    ];
+  }
 }

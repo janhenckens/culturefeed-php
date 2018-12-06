@@ -16,12 +16,23 @@ class CultureFeed_Uitpas_Calendar {
    */
   public $periods = array();
 
+  /**
+   * Permanent / permanentOpeningTimes
+   *
+   * @var CultureFeed_Uitpas_Calendar_Permanent
+   */
+  public $permanent;
+
   public function addPeriod(CultureFeed_Uitpas_Calendar_Period $period) {
     $this->periods[] = $period;
   }
   
   public function addTimestamp(CultureFeed_Uitpas_Calendar_Timestamp $timestamp) {
     $this->timestamps[] = $timestamp;
+  }
+
+  public function setPermanent(CultureFeed_Cdb_Data_Calendar_Permanent $permanent) {
+    $this->permanent = $permanent;
   }
 
   public static function createFromXML(CultureFeed_SimpleXMLElement $object) {
@@ -38,7 +49,7 @@ class CultureFeed_Uitpas_Calendar {
 
       $calendar->addPeriod($period);
     }
-    
+
     foreach ($object->xpath('cdb:timestamps/cdb:timestamp') as $timeObject) {
       $timeObject->registerXPathNamespace('cdb', CultureFeed_Cdb_Default::CDB_SCHEME_URL);
 
@@ -48,6 +59,11 @@ class CultureFeed_Uitpas_Calendar {
       $timestamp->timeend = $timeObject->xpath_str('cdb:timeend');
 
       $calendar->addTimestamp($timestamp);
+    }
+
+    $permanentXmlElement = $object->xpath('cdb:permanentopeningtimes/cdb:permanent');
+    if (!empty($permanentXmlElement)) {
+      $calendar->setPermanent(CultureFeed_Uitpas_Calendar_Permanent::parseFromCdbXml($object));
     }
 
     return $calendar;

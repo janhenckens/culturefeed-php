@@ -1,0 +1,47 @@
+<consumer xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:cdb="http://www.cultuurdatabank.com/XMLSchema/CdbXSD/3.1/FINAL">
+    <callback>http://www.uitdatabank.be/2/Home/Callback</callback>
+    <consumerKey>5720d908-03cf-46da-8f5a-c43db621df5c</consumerKey>
+    <consumerSecret>c1913bcb-7557-4267-aae2-25161403dcce</consumerSecret>
+    <description>UiTDatabank</description>
+    <creationDate>1970-01-01T00:00Z</creationDate>
+    <id>776</id>
+    <name>UiTDatabank</name>
+    <organization>www.uitdatabank.be</organization>
+    <status>ACTIVE</status>
+    <activityTypesUsedForMailingUpdates>TYPE_CONNECT_CHANNEL</activityTypesUsedForMailingUpdates>
+    <channelSpecificCategoryId/>
+    <channelSpecificKeyword/>
+    <destinationAfterEmailVerification>http://www.uitdatabank.be/2/Home/About</destinationAfterEmailVerification>
+    <groups>
+        <group>
+            <id>744</id>
+            <name>UiTDatabank groep</name>
+        </group>
+        <group>
+            <id>22074</id>
+            <name>Auth API</name>
+        </group>
+    </groups>
+    <logo>//media.uitid.be/fis/download/ce126667652776f0e9e55160f12f5478/74d005ad-5bee-4dc9-af96-3830fed3b3b7/2014-03-13_112451.jpg</logo>
+    <domain>www.uitdatabank.be</domain>
+    <permissions>
+        <permission>gebruikers aanmaken</permission>
+        <permission>gebruikers aanpassen</permission>
+        <permission>gebruikers ophalen</permission>
+        <permission>gebruikers zoeken met privé email adres</permission>
+        <permission>bijkomende gegevens bij opzoeken van gebruikers</permission>
+        <permission>activiteiten aanmaken</permission>
+        <permission>authorisatie overslaan</permission>
+        <permission>confirmatie overslaan</permission>
+        <permission>de AUTH API gebruiken</permission>
+        <permission>events aanmaken</permission>
+        <permission>events aanpassen</permission>
+        <permission>verdeelsleutels ophalen</permission>
+        <permission>verdeelsleutels toekennen aan inrichter</permission>
+        <permission>balies aanmaken</permission>
+        <permission>balies aanpassen</permission>
+    </permissions>
+    <searchPrefix/>
+    <searchPrefixFilterQuery/>
+    <uitdatabankUrlTemplate/>
+</consumer>

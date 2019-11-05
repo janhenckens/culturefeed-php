@@ -182,6 +182,12 @@ class CultureFeed_Uitpas_PassholderTest extends PHPUnit_Framework_TestCase {
     $this->assertInstanceOf('CultureFeed_Uitpas_Passholder_UitIdUser', $passholder->uitIdUser);
 
     $this->assertEquals('a81b1741-5e97-4eee-ab30-a71865fc266a', $passholder->uitIdUser->id);
+    $this->assertEquals(true, $passholder->uitIdUser->optInPreferences->optInServiceMails);
+    $this->assertEquals(false, $passholder->uitIdUser->optInPreferences->optInMilestoneMails);
+    $this->assertEquals(true, $passholder->uitIdUser->optInPreferences->optInInfoMails);
+    $this->assertEquals(false, $passholder->uitIdUser->optInPreferences->optInSms);
+    $this->assertEquals(true, $passholder->uitIdUser->optInPreferences->optInPost);
+
     $this->assertEquals('Frontend Tester', $passholder->uitIdUser->nick);
     $this->assertEquals(FALSE, $passholder->verified);
   }
@@ -207,5 +213,13 @@ class CultureFeed_Uitpas_PassholderTest extends PHPUnit_Framework_TestCase {
 
     $this->assertSame(1, $membership->association->id);
     $this->assertSame('Chiro Jongens', $membership->association->name);
+  }
+
+  public function testOptinPreferencesToPostData() {
+    $this->passholder->schoolConsumerKey = '';
+
+    $postData = $this->passholder->toPostData();
+
+    $this->assertArrayNotHasKey('schoolConsumerKey', $postData);
   }
 }

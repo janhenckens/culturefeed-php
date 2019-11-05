@@ -42,6 +42,11 @@ class CultureFeed_Uitpas_Event_TicketSale_Coupon extends CultureFeed_Uitpas_Valu
   public $remainingTotal;
 
   /**
+   * @var CultureFeed_Uitpas_CardSystem
+   */
+  public $cardSystem;
+
+  /**
    * @param CultureFeed_SimpleXMLElement $object
    * @return CultureFeed_Uitpas_Event_TicketSale_Coupon
    */
@@ -68,6 +73,11 @@ class CultureFeed_Uitpas_Event_TicketSale_Coupon extends CultureFeed_Uitpas_Valu
     $remainingTotalElement = $object->xpath('remainingTotal', FALSE);
     if ($remainingTotalElement instanceof CultureFeed_SimpleXMLElement) {
       $coupon->remainingTotal = CultureFeed_Uitpas_PeriodConstraint::createFromXML($remainingTotalElement);
+    }
+
+    $cardSystem = $object->xpath('cardSystem', FALSE);
+    if ($cardSystem instanceof CultureFeed_SimpleXMLElement) {
+      $coupon->cardSystem = CultureFeed_Uitpas_CardSystem::createFromXML($cardSystem);
     }
 
     return $coupon;

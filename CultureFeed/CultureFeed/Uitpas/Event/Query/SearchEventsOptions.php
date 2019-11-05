@@ -115,6 +115,14 @@ class CultureFeed_Uitpas_Event_Query_SearchEventsOptions extends CultureFeed_Uit
    */
   public $sort;
 
+  /**
+   * Whether to add description to results. Default: true.
+   *
+   * @var boolean
+   */
+  public $description = true;
+
+
   protected function manipulatePostData(&$data) {
     if (isset($data['startDate']) && is_integer($data['startDate'])) {
       $data['startDate'] = date(DateTime::W3C, $data['startDate']);

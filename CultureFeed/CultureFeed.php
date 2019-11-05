@@ -1367,7 +1367,7 @@ class CultureFeed implements ICultureFeed {
 
     $data = $query->toPostData();
 
-    $result = $this->oauth_client->authenticatedGetAsXml('mailing/search', $data);
+    $result = $this->oauth_client->authenticatedGetAsXml('mailing/v2/search', $data);
     try {
       $xml = new CultureFeed_SimpleXMLElement($result);
     }
@@ -1891,17 +1891,32 @@ class CultureFeed implements ICultureFeed {
    */
   public function getServiceConsumer($consumerKey) {
     $result = $this->oauth_client->consumerGetAsXML('serviceconsumer/' . $consumerKey);
+    return $this->parseServiceConsumerFromXmlString($result);
+  }
 
-    try {
-      $xml = new CultureFeed_SimpleXMLElement($result);
-    }
-    catch (Exception $e) {
-      throw new CultureFeed_ParseException($result);
-    }
+  /**
+   * Get An existing service consumer by api key.
+   *
+   * @param string $apiKey
+   * @return \CultureFeed_Consumer
+   * @throws \CultureFeed_ParseException
+   */
+  public function getServiceConsumerByApiKey($apiKey, $includePermissions = TRUE)
+  {
+    $params = array('includePermissions' => $includePermissions ? 'true' : 'false');
+    $result = $this->oauth_client->consumerGetAsXML('serviceconsumer/apikey/' . $apiKey, $params);
+    return $this->parseServiceConsumerFromXmlString($result);
+  }
 
-    $element = $xml->xpath('/consumer');
-
-    return $this->parseServiceConsumer($element[0]);
+  /**
+   * Add group permission to uitpas
+   *
+   * @param CultureFeed_Consumer $consumer
+   * @param int $permissionGroup
+   */
+  public function addUitpasPermission(CultureFeed_Consumer $consumer, $permissionGroup) {
+    $params = ['group' =>  $permissionGroup];
+    $this->oauth_client->consumerPostAsXML('uitpas/consumerpermission/' . $consumer->consumerKey, $params);
   }
 
   /**
@@ -1982,6 +1997,25 @@ class CultureFeed implements ICultureFeed {
   }
 
   /**
+   * @param string $xml
+   * @return CultureFeed_Consumer
+   * @throws CultureFeed_ParseException
+   */
+  protected function parseServiceConsumerFromXmlString($xml)
+  {
+    try {
+      $xml = new CultureFeed_SimpleXMLElement($xml);
+    }
+    catch (Exception $e) {
+      throw new CultureFeed_ParseException($xml);
+    }
+
+    $element = $xml->xpath('/consumer');
+
+    return $this->parseServiceConsumer($element[0]);
+  }
+
+  /**
    * Initializes a CultureFeed_Consumer object from its XML representation.
    *
    * @param CultureFeed_SimpleXMLElement $element
@@ -2003,9 +2037,16 @@ class CultureFeed implements ICultureFeed {
     $consumer->status                             = $element->xpath_str('status');
     $consumer->group                              = $element->xpath_int('groups/group/id', true);
     $consumer->searchPrefix                       = $element->xpath_str('searchPrefix');
-    $consumer->searchApi3Key                      = $element->xpath_str('apiKeySapi3');
+    $consumer->apiKeySapi3                      = $element->xpath_str('apiKeySapi3');
     $consumer->searchPrefixFilterQuery            = $element->xpath_str('searchPrefixFilterQuery');
+    $consumer->searchPrefixSapi3                  = $element->xpath_str('searchPrefixSapi3');
     $consumer->admins                            = $element->xpath_str('admins/admin/rdf:id', true);
+
+    $consumer->group = $element->xpath_int('groups/group/id', true);
+    if (empty($consumer->group)) {
+      // Try the deprecated/obsolete format just to make sure.
+      $consumer->group = $element->xpath_int('group', true);
+    }
 
     return $consumer;
   }

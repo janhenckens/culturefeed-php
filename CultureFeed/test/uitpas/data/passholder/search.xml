@@ -45,6 +45,13 @@
             <street>opubi 73</street>
             <uitIdUser>
                 <ns2:id>5641715f-413f-42a2-a7ed-b715ad330416</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -88,6 +95,13 @@
             <street>lysol 150</street>
             <uitIdUser>
                 <ns2:id>2d48f8b9-2ec2-4556-8bd7-d0a41153784f</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -131,6 +145,13 @@
             <street>dabsi 152</street>
             <uitIdUser>
                 <ns2:id>96c61d69-51b8-47a2-8d3a-d791f18a5838</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -179,6 +200,13 @@
             <street>sowal 153</street>
             <uitIdUser>
                 <ns2:id>023975ef-d331-4ced-b62f-281a1401130d</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>true</verified>
         </passholder>
@@ -224,6 +252,13 @@
             <street>tomel 196</street>
             <uitIdUser>
                 <ns2:id>fda4218e-1b0f-4bf6-acd0-3f94266b255f</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -269,6 +304,13 @@
             <street>denyi 70</street>
             <uitIdUser>
                 <ns2:id>e123cb15-c8b5-4b81-9f93-63ec317ddfe8</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -314,6 +356,13 @@
             <street>iffok 115</street>
             <uitIdUser>
                 <ns2:id>18114a17-0af1-4bb3-9067-d4b3d581d200</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -359,6 +408,13 @@
             <street>dubse 100</street>
             <uitIdUser>
                 <ns2:id>544af8c3-17ed-4391-9775-b918f8a2ca20</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -402,6 +458,13 @@
             <street>biove 113</street>
             <uitIdUser>
                 <ns2:id>02d1bd3d-b993-4375-8188-0bd5f02dfe22</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>
@@ -447,6 +510,13 @@
             </schoolConsumerKey>
             <uitIdUser>
                 <ns2:id>a4a3b731-b5fe-46d2-8aa1-3b02c081ef8a</ns2:id>
+                <optInPreferences>
+                    <optInServiceMails>true</optInServiceMails>
+                    <optInMilestoneMails>false</optInMilestoneMails>
+                    <optInInfoMails>true</optInInfoMails>
+                    <optInSms>false</optInSms>
+                    <optInPost>true</optInPost>
+                </optInPreferences>
             </uitIdUser>
             <verified>false</verified>
         </passholder>

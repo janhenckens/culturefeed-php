@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <cardSystems>
+        <cardSystem>
+            <distributionKeys>
+                <distributionKey>
+                    <global>false</global>
+                    <id>25</id>
+                    <name>25% meerdaags  (regio)</name>
+                </distributionKey>
+                <distributionKey>
+                    <global>false</global>
+                    <id>23</id>
+                    <name>€1,5 dag (regio)</name>
+                </distributionKey>
+                <distributionKey>
+                    <global>false</global>
+                    <id>24</id>
+                    <name>€3  hele dag (regio)</name>
+                </distributionKey>
+            </distributionKeys>
+            <id>1</id>
+            <name>UiTPAS Dender</name>
+        </cardSystem>
+        <cardSystem>
+            <distributionKeys/>
+            <id>15</id>
+            <name>UiTPAS</name>
+        </cardSystem>
+    </cardSystems>
+</response>

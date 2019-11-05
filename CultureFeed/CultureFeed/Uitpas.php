@@ -47,6 +47,14 @@ interface CultureFeed_Uitpas {
   public function getDistributionKeysForOrganizer($cdbid);
 
   /**
+   * Get the card systems for a given organizer.
+   *
+   * @param string $cdbid The CDBID of the given organizer
+   * @return CultureFeed_ResultSet The set of card systems
+   */
+  public function getCardSystemsForOrganizer($cdbid);
+
+  /**
    * Get the price of the UitPas.
    *
    * @return CultureFeed_ResultSet
@@ -70,6 +78,23 @@ interface CultureFeed_Uitpas {
    *   When the response contains no uitpasPrice object.
    */
   public function getPriceByUitpas($uitpas_number, $reason, $date_of_birth = null, $postal_code = null, $voucher_number = null, $consumer_key_counter = NULL);
+
+  /**
+   * @param string $card_system_id
+   * @param int $date_of_birth
+   * @param string|null $postal_code
+   * @param string|null $voucher_number
+   * @param string|null $consumer_key_counter
+   *
+   * @return CultureFeed_Uitpas_Passholder_UitpasPrice
+   *
+   * @throws CultureFeed_ParseException
+   *   When the response XML could not be parsed.
+   *
+   * @throws LogicException
+   *   When the response contains no uitpasPrice object.
+   */
+  public function getPriceForUpgrade($card_system_id, $date_of_birth, $postal_code = null, $voucher_number = null, $consumer_key_counter = null);
 
   /**
    * Create a new UitPas passholder.
@@ -209,6 +234,15 @@ interface CultureFeed_Uitpas {
    *        The card system preferences are identified by user id and card system id. Only fields that are set will be updated.
    */
   public function updatePassholderCardSystemPreferences(CultureFeed_Uitpas_Passholder_CardSystemPreferences $preferences);
+
+  /**
+   * Update a passholder's opt-in preferences.
+   *
+   * @param string $id The user ID of the passholder
+   * @param CultureFeed_Uitpas_Passholder_OptInPreferences $preferences The passholder's opt-in preferences to update.
+   *        The opt-in preferences are identified by user id. Only fields that are set will be updated.
+   */
+  public function updatePassholderOptInPreferences($id, CultureFeed_Uitpas_Passholder_OptInPreferences $preferences);
 
   /**
    * Block a UitPas.
@@ -424,6 +458,42 @@ interface CultureFeed_Uitpas {
    *   Details of the event.
    */
   public function getEvent($id);
+
+  /**
+   * Get the card systems for a given event.
+   *
+   * @param string $cdbid The CDBID of the given event
+   * @return CultureFeed_ResultSet The set of card systems
+   */
+  public function getCardSystemsForEvent($cdbid);
+
+  /**
+   * @param string $cdbid
+   * @return bool
+   */
+  public function eventHasTicketSales($cdbid);
+
+  /**
+   * Add a card system to the event.
+   *
+   * @param string $cdbid
+   * @param string $cardSystemId
+   * @param string|null $distributionKey
+   *   Only required for manual distribution keys.
+   *
+   * @return CultureFeed_Uitpas_Response
+   */
+  public function addCardSystemToEvent($cdbid, $cardSystemId, $distributionKey = null);
+
+  /**
+   * Delete a card system from the event.
+   *
+   * @param string $cdbid
+   * @param string $cardSystemId
+   *
+   * @return CultureFeed_Uitpas_Response
+   */
+  public function deleteCardSystemFromEvent($cdbid, $cardSystemId);
 
   /**
 	 * @param string $permanent if permanent only permanent card systems need to be sent over.

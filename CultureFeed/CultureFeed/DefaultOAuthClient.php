@@ -353,7 +353,7 @@ class CultureFeed_DefaultOAuthClient implements CultureFeed_OAuthClient {
           $e->requiredPermission = $xml->xpath_str('/response/requiredPermission');
         }
         else {
-          $e = new CultureFeed_Exception($exception_message, $code);
+          $e = new CultureFeed_Exception($exception_message, $code, $response->code);
         }
 
         if (!empty($message)) {

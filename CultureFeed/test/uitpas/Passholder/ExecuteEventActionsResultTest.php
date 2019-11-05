@@ -42,6 +42,12 @@ class CultureFeed_Uitpas_Passholder_ExecuteEventActionsResultTest extends PHPUni
 
     $expectedPassholder->uitIdUser = new CultureFeed_Uitpas_Passholder_UitIdUser();
     $expectedPassholder->uitIdUser->id = 'eb0cc9fa-bf36-4898-8fce-a20ad040f3df';
+    $expectedPassholder->uitIdUser->optInPreferences = new CultureFeed_Uitpas_Passholder_OptInPreferences();
+    $expectedPassholder->uitIdUser->optInPreferences->optInServiceMails = true;
+    $expectedPassholder->uitIdUser->optInPreferences->optInMilestoneMails = false;
+    $expectedPassholder->uitIdUser->optInPreferences->optInInfoMails = true;
+    $expectedPassholder->uitIdUser->optInPreferences->optInSms = false;
+    $expectedPassholder->uitIdUser->optInPreferences->optInPost = true;
 
     $passholderCardSystemData = new CultureFeed_Uitpas_Passholder_CardSystemSpecific();
     $passholderCardSystemData->cardSystem = new CultureFeed_Uitpas_CardSystem();

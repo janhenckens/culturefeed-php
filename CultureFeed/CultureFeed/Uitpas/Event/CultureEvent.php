@@ -260,6 +260,13 @@ class CultureFeed_Uitpas_Event_CultureEvent extends CultureFeed_Uitpas_ValueObje
   public $cardSystems;
 
   /**
+   * The description of the event
+   *
+   * @var string
+   */
+  public $description;
+
+  /**
    * The ticket sales.
    *
    * @var CultureFeed_Uitpas_Event_TicketSale_Opportunity[]
@@ -350,11 +357,12 @@ class CultureFeed_Uitpas_Event_CultureEvent extends CultureFeed_Uitpas_ValueObje
     $event->price = $object->xpath_float('price');
     $event->tariff = $object->xpath_float('tariff');
     $event->title = $object->xpath_str('title');
+    $event->description = $object->xpath_str('shortDescription');
 
     $object->registerXPathNamespace('cdb', CultureFeed_Cdb_Default::CDB_SCHEME_URL);
 
     $calendar_xml = $object->xpath('cdb:calendar', false);
-    if (!empty($calendar_xml)) {
+    if ($calendar_xml !== FALSE && !is_array($calendar_xml)) {
       $event->calendar = CultureFeed_Uitpas_Calendar::createFromXML($calendar_xml);
     }
     $event->numberOfPoints = $object->xpath_int('numberOfPoints');

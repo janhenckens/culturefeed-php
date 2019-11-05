@@ -141,6 +141,8 @@ interface ICultureFeed {
 
   public function updateServiceConsumer(CultureFeed_Consumer $consumer);
 
+  public function addUitpasPermission(CultureFeed_Consumer $consumer, $permissionGroup);
+
   /**
    * Add a user as service consumer admin.
    * @param $consumerKey
@@ -149,6 +151,8 @@ interface ICultureFeed {
   public function addServiceConsumerAdmin($consumerKey, $uid);
 
   public function getServiceConsumer($consumerKey);
+
+  public function getServiceConsumerByApiKey($apiKey, $includePermissions = TRUE);
 
   /**
    * @return CultureFeed_Uitpas

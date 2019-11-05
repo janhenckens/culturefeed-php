@@ -188,6 +188,10 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
         return $this->realCultureFeed->getServiceConsumer($consumerKey);
     }
 
+    public function getServiceConsumerByApiKey($apiKey, $includePermissions = TRUE) {
+      return $this->realCultureFeed->getServiceConsumerByApiKey($apiKey, $includePermissions);
+    }
+
     public function getServiceConsumers($start = 0, $max = null, $filters = array())
     {
         return $this->realCultureFeed->getServiceConsumers($start, $max, $filters);
@@ -451,6 +455,11 @@ abstract class CultureFeed_ICultureFeedDecoratorBase implements ICultureFeed
     public function uploadUserDepiction($id, $file_data)
     {
         return $this->realCultureFeed->uploadUserDepiction($id, $file_data);
+    }
+
+    public function addUitpasPermission(CultureFeed_Consumer $consumer, $permissionGroup)
+    {
+        return $this->realCultureFeed->addUitpasPermission($consumer, $permissionGroup);
     }
 
     /**

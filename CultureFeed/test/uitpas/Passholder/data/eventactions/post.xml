@@ -37,6 +37,13 @@
         <street>umrop 8</street>
         <uitIdUser>
             <ns2:id>eb0cc9fa-bf36-4898-8fce-a20ad040f3df</ns2:id>
+            <optInPreferences>
+                <optInServiceMails>true</optInServiceMails>
+                <optInMilestoneMails>false</optInMilestoneMails>
+                <optInInfoMails>true</optInInfoMails>
+                <optInSms>false</optInSms>
+                <optInPost>true</optInPost>
+            </optInPreferences>
         </uitIdUser>
         <verified>false</verified>
     </passHolder>

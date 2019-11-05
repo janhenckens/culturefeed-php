@@ -50,6 +50,13 @@
     <uitIdUser>
         <ns2:id>a81b1741-5e97-4eee-ab30-a71865fc266a</ns2:id>
         <ns3:nick>Frontend Tester</ns3:nick>
+        <optInPreferences>
+            <optInServiceMails>true</optInServiceMails>
+            <optInMilestoneMails>false</optInMilestoneMails>
+            <optInInfoMails>true</optInInfoMails>
+            <optInSms>false</optInSms>
+            <optInPost>true</optInPost>
+        </optInPreferences>
     </uitIdUser>
     <verified>false</verified>
 </passHolder>

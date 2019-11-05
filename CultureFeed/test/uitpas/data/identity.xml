@@ -15,6 +15,13 @@
         <gender>FEMALE</gender>
         <uitIdUser>
             <rdf:id>ac343a2f-e181-411f-8a45-386121f0c80d</rdf:id>
+            <optInPreferences>
+                <optInServiceMails>true</optInServiceMails>
+                <optInMilestoneMails>false</optInMilestoneMails>
+                <optInInfoMails>true</optInInfoMails>
+                <optInSms>false</optInSms>
+                <optInPost>true</optInPost>
+            </optInPreferences>
         </uitIdUser>
         <registrationBalieConsumerKey>31413BDF-DFC7-7A9F-10403618C2816E44
         </registrationBalieConsumerKey>

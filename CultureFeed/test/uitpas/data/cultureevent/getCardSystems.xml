@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <code>ACTION_SUCCEEDED</code>
+    <cardSystems>
+        <cardSystem>
+            <id>1</id>
+            <name>UiTPAS Dender</name>
+            <distributionKeys>
+                <distributionKey>
+                    <id>27</id>
+                    <name>Speelplein HA</name>
+                    <conditions>
+                        <condition>
+                            <definition>KANSARM</definition>
+                            <operator>IN</operator>
+                            <value>MY_CARDSYSTEM</value>
+                        </condition>
+                    </conditions>
+                    <tariff>3.0</tariff>
+                    <priceClasses>
+                        <priceClass>
+                            <name>Basistarief</name>
+                            <price>10.0</price>
+                            <tariff>3.0</tariff>
+                        </priceClass>
+                    </priceClasses>
+                    <automatic>false</automatic>
+                </distributionKey>
+            </distributionKeys>
+        </cardSystem>
+    </cardSystems>
+</response>

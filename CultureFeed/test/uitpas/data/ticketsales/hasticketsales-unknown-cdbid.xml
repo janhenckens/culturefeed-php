@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <code>UNKNOWN_EVENT_CDBID</code>
+    <message>Could not find an event with the given cdbid.</message>
+</response>

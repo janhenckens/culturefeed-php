@@ -25,6 +25,149 @@ class CultureFeed_CultureFeedTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * @dataProvider getConsumerMethodDataProvider
+   *
+   * @param string $method
+   * @param string $identifier
+   * @param string $expectedPath
+   */
+  public function testGetConsumerWithGroups(
+    $method,
+    $identifier,
+    $expectedPath
+  ) {
+    $xml = file_get_contents(__DIR__ . '/data/consumer_with_api_key_sapi3.xml');
+
+    $this->oauthClient->expects($this->once())
+      ->method('consumerGetAsXml')
+      ->with($expectedPath)
+      ->willReturn($xml);
+
+    $consumer = $this->cultureFeed->{$method}($identifier);
+
+    $this->assertEquals([744, 22074], $consumer->group);
+  }
+
+  /**
+   * @dataProvider getConsumerMethodDataProvider
+   *
+   * @param string $method
+   * @param string $identifier
+   * @param string $expectedPath
+   */
+  public function testGetConsumerWithoutSapi3Properties(
+    $method,
+    $identifier,
+    $expectedPath
+  ) {
+    $xml = file_get_contents(__DIR__ . '/data/consumer_without_sapi3_properties.xml');
+
+    $this->oauthClient->expects($this->once())
+      ->method('consumerGetAsXml')
+      ->with($expectedPath)
+      ->willReturn($xml);
+
+    $consumer = $this->cultureFeed->{$method}($identifier);
+
+    $this->assertNull($consumer->apiKeySapi3);
+    $this->assertNull($consumer->searchPrefixSapi3);
+  }
+
+  /**
+   * @dataProvider getConsumerMethodDataProvider
+   *
+   * @param string $method
+   * @param string $identifier
+   * @param string $expectedPath
+   */
+  public function testGetConsumerWithEmptySapi3Properties(
+    $method,
+    $identifier,
+    $expectedPath
+  ) {
+    $xml = file_get_contents(__DIR__ . '/data/consumer_with_empty_sapi3_properties.xml');
+
+    $this->oauthClient->expects($this->once())
+      ->method('consumerGetAsXml')
+      ->with($expectedPath)
+      ->willReturn($xml);
+
+    $consumer = $this->cultureFeed->{$method}($identifier);
+
+    $this->assertEquals('', $consumer->apiKeySapi3);
+    $this->assertEquals('', $consumer->searchPrefixSapi3);
+  }
+
+  /**
+   * @dataProvider getConsumerMethodDataProvider
+   *
+   * @param string $method
+   * @param string $identifier
+   * @param string $expectedPath
+   */
+  public function testGetConsumerWithApiKeySapi3(
+    $method,
+    $identifier,
+    $expectedPath
+  ) {
+    $xml = file_get_contents(__DIR__ . '/data/consumer_with_api_key_sapi3.xml');
+
+    $this->oauthClient->expects($this->once())
+      ->method('consumerGetAsXml')
+      ->with($expectedPath)
+      ->willReturn($xml);
+
+    $consumer = $this->cultureFeed->{$method}($identifier);
+
+    $this->assertEquals('c2436351-f314-4b83-916d-2e0a37502358', $consumer->apiKeySapi3);
+    $this->assertEquals('', $consumer->searchPrefixSapi3);
+  }
+
+  /**
+   * @dataProvider getConsumerMethodDataProvider
+   *
+   * @param string $method
+   * @param string $identifier
+   * @param string $expectedPath
+   */
+  public function testGetConsumerWithSearchPrefixSapi3(
+    $method,
+    $identifier,
+    $expectedPath
+  ) {
+    $xml = file_get_contents(__DIR__ . '/data/consumer_with_search_prefix_sapi3.xml');
+
+    $this->oauthClient->expects($this->once())
+      ->method('consumerGetAsXml')
+      ->with($expectedPath)
+      ->willReturn($xml);
+
+    $consumer = $this->cultureFeed->{$method}($identifier);
+
+    $this->assertEquals('c2436351-f314-4b83-916d-2e0a37502358', $consumer->apiKeySapi3);
+    $this->assertEquals('labels:foo AND regions:gem-leuven', $consumer->searchPrefixSapi3);
+  }
+
+  /**
+   * @return array
+   */
+  public function getConsumerMethodDataProvider()
+  {
+    return [
+        [
+          'method' => 'getServiceConsumer',
+          'identifier' => '5720d908-03cf-46da-8f5a-c43db621df5c',
+          'expectedPath' => 'serviceconsumer/5720d908-03cf-46da-8f5a-c43db621df5c',
+        ],
+      [
+        'method' => 'getServiceConsumerByApiKey',
+        'identifier' => 'c2436351-f314-4b83-916d-2e0a37502358',
+        'expectedPath' => 'serviceconsumer/apikey/c2436351-f314-4b83-916d-2e0a37502358',
+      ],
+    ];
+  }
+
+  /**
    * Test the handling of a succesfull user light call.
    */
   public function testGetUserLightId() {

@@ -8,8 +8,8 @@ class CultureFeed_Exception extends Exception {
    */
   protected $userFriendlyMessage;
 
-  function __construct($message, $error_code) {
-    parent::__construct($message, 0);
+  function __construct($message, $error_code, $code = 0) {
+    parent::__construct($message, $code);
     $this->error_code = $error_code;
   }
 

@@ -263,6 +263,62 @@ class CultureFeed_Uitpas_Passholder extends CultureFeed_Uitpas_ValueObject {
   public $voucherNumber;
 
   /**
+   * True if the passholder has opted in to receive service mails (only used for registration).
+   *
+   * @var bool
+   */
+  public $optInServiceMails;
+
+  /**
+   * True if the passholder has opted in to receive milestone mails (only used for registration).
+   *
+   * @var bool
+   */
+  public $optInMilestoneMails;
+
+  /**
+   * True if the passholder has opted in to receive info mails (only used for registration).
+   *
+   * @var bool
+   */
+  public $optInInfoMails;
+
+  /**
+   * True if the passholder has opted in to receive SMS messages (only used for registration).
+   *
+   * @var bool
+   */
+  public $optInSms;
+
+  /**
+   * True if the passholder has opted in to receive info via post (only used for registration).
+   *
+   * @var bool
+   */
+  public $optInPost;
+
+  /**
+   * True if the passholder has received the legal terms and conditions on paper (only used for registration).
+   *
+   * @var bool
+   */
+  public $legalTermsPaper;
+
+  /**
+   * True if the passholder has received the legal terms and conditions through email (only used for registration).
+   *
+   * @var bool
+   */
+  public $legalTermsDigital;
+
+  /**
+   * True if the passholder is a minor and has parental consent (only used for registration).
+   *
+   * @var bool
+   */
+  public $parentalConsent;
+
+  /**
    * {@inheritdoc}
    */
   protected function manipulatePostData(&$data) {

@@ -43,6 +43,13 @@
         <street>Somewhere 3</street>
         <uitIdUser>
             <ns2:id>16fc936b-e8dd-4b3a-81bb-269b53e479aa</ns2:id>
+            <optInPreferences>
+                <optInServiceMails>true</optInServiceMails>
+                <optInMilestoneMails>false</optInMilestoneMails>
+                <optInInfoMails>true</optInInfoMails>
+                <optInSms>false</optInSms>
+                <optInPost>true</optInPost>
+            </optInPreferences>
         </uitIdUser>
         <verified>true</verified>
     </passHolder>
